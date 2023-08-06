@@ -8,12 +8,22 @@
 # this machine's public IP, then replace ":80" below with your
 # domain name.
 
+{
+    log {
+        output file /data/log/caddy.log
+        format console
+    }
+}
+
+
 https://<your-domain>[:<port>] {
+        log
         root * /srv
+        file_server
         tls {
                 dns alidns {
-                        access_key_id ${env.ALIYUN_ACCESS_KEY_ID} 
-                        access_key_secret ${env.ALIYUN_ACCESS_KEY_SECRET}
+                        access_key_id {$ALIYUN_ACCESS_KEY_ID} 
+                        access_key_secret {$ALIYUN_ACCESS_KEY_SECRET}
                 }
         }
 }
