@@ -11,13 +11,13 @@ RUN set -eux; \
 		/data/caddy \
 		/etc/caddy \
 		/usr/share/caddy \
-	; \
-	wget -O /etc/caddy/Caddyfile "https://github.com/caddyserver/dist/raw/5910351159c2995a9a1c911d7879de6ff598d905/config/Caddyfile"; \
-	wget -O /usr/share/caddy/index.html "https://github.com/caddyserver/dist/raw/5910351159c2995a9a1c911d7879de6ff598d905/welcome/index.html"
+	; 
 
 # https://github.com/caddyserver/caddy/releases
 ENV CADDY_VERSION v2.7.3
 COPY binary/caddy /usr/bin/caddy
+COPY site/index.html /usr/share/caddy/index.html
+COPY Caddyfile /etc/caddy/Caddyfile
 
 # https://github.com/caddyserver/caddy/blob/HEAD/dist/conf/LICENSE-APACHE.txt
 RUN set -eux; \
