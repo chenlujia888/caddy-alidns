@@ -15,3 +15,6 @@ services:
       - $PWD/data:/data
       - $PWD/config:/config
     
+    environment:
+      - ALIYUN_ACCESS_KEY_ID:${ALIYUN_ACCESS_KEY_ID}
+      - ALIYUN_ACCESS_KEY_SECRET:${ALIYUN_ACCESS_KEY_SECRET}
