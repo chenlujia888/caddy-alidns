@@ -3,6 +3,7 @@ version: "3.7"
 services:
   caddy:
     build: .
+    # image: registry.cn-hangzhou.aliyuncs.com/hxtech/caddy-alidns:alpine
     container_name: caddy
     restart: unless-stopped
     ports:
